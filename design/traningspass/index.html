@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tant Agda's träningsdagbok - Lägg till Träningssession</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <!-- Länka till custom css fil? -->
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+  <script src="../js/script.js"></script>
+</head>
+<body>
+  <header class="container pb-1 rounded-4">
+    <h1>Träningsdagbok för Tant Agda</h1>
+  </header>
+  <nav class="container nav pb-1 rounded-4">
+    <ul>
+      <li><a href="/">Hem</a></li>
+      <li><a href="../workout-sessions/" aria="selected">Lägg till träningssession</a></li>
+      <li><a href="../workout-types/">Administrera träningstyper</a></li>
+      <li><a href="../workouts-workouttypes/">Kopplingar träningspass och träningstyper</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <section class="form-border">
+    <h2>Vald träningspass</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Träningspass datumn</th>
+          <th scope="col">Träningspass namn</th>
+          <th scope="col">Total träningstid (min.)</th>
+          <th scope="col">Kommentar</th>
+        </tr>
+      </thead>
+      <tbody id="selected_workout">
+        <tr>
+          <td><p>Placeholder: Här skrivs värdet för det aktuella träningspasset ut</p></td>
+          <!-- If workout is null, then default value is 0 - Zero -->
+          <!-- Displays information only about the selected workout -->
+        </tr>
+      </tbody>
+    </table>
+    </section>
+    
+    <section>
+    <h2>Träningssessioner</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Träningstyp</th>
+          <th scope="col">Träningstid (min.)</th>
+        </tr>
+      </thead>
+      <tbody id="workout_session_list">
+        <tr>
+          <!-- This row will only be displayed if no workputsessions has been registered -->
+          <td><p>Inga träningssessioner registrerad</p></td>
+          <!-- Print out workouttype and workouttime for each workoutsession -->
+        </tr>
+      </tbody>
+    </table>
+    </section>
+
+    <section class="form-border">
+      <h2>Lägg till ny träningssession</h2>
+      <form>    
+        <label for="workout-session-type">Träningstyp:</label>
+        <input type="text" id="workout-session-type" class="form-control mb-2" required>
+        <!-- Get workouttypes for the table workout-types. Only select and register one workouttype at the time. -->
+    
+        <!-- Setting max workout length to 12 hours -->
+        <label for="workout_session_time">Träningstid (minuter):</label>
+        <input type="number" id="workout_session_time" min="1" max="720" class="form-control mb-2" required>
+    
+        <input type="button" id="addWorkoutSession" value="Lägg till träningssession" class="btn btn-primary">
+      </form>
+    </section>
+
+  <!--
+    TODO: Create new form for registering workouttype
+    <label for="workout">Träningstyp:</label>
+    <input type="text" id="workout" class="form-control mb-2" required>
+
+    Form for registering workouttime on aktivity
+    <label for="workouttime">Träningstid (minuter): 0 </label>
+    <input type="number" id="workouttime" min="1" max="720" class="form-control mb-2" required>
+  -->
+  </main>
+
+  <footer class="container pt-3 pb-1 rounded-4">
+    <p>&copy; JensChrChristensen.com - Grit Academy - GitHub Repo</p>
+  </footer>
+</body>
+</html>
