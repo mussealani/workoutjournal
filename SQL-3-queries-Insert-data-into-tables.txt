@@ -1,0 +1,63 @@
+1. Skapa tabellen workouttype
+INSERT INTO workouttypes (
+    workouttype_name
+)
+VALUES
+('Fotboll'),
+('Handboll'),
+('Ishockey'),
+('Löpträning'),
+('Friidrott'),
+('Handboll');
+
+6. Skapa test workout i tabellen workouts
+INSERT INTO workouts (
+  workout_name,
+  workout_length,
+  workout_date,
+  workout_comment
+)
+VALUES 
+('Handboll','1','2025-04-21','Min första registrering av handbollträning');
+
+7. Skapa test koppling mellan workouts och workouttype
+INSERT INTO workouts_workouttypes (
+  workout_id,
+  workouttype_id
+)
+VALUES
+('1','1'),
+('1','3'),
+('2','2'),
+('2','1'),
+('3','1'),
+('3','4'),
+('4','3'),
+('4','1'),
+('5','1'),
+('5','5');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

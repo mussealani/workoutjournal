@@ -1,5 +1,3 @@
-Notebook 1
-
 1. Skapa database
 CREATE DATABASE workoutdb;
 
