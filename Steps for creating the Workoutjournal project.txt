@@ -19,3 +19,5 @@ Steps for initial project setup
 -- Vilken användare skall vi använda för at ansluta till databasen: DB_USER=root - Klart 
 -- Lösenord - DB_PASSWORD=rootpassword - Klart
 -- Databasnamn - DB_NAME=workoutjournal - Klart
+
+? Installera JWT
