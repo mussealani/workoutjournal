@@ -8,7 +8,7 @@ VALUES
 ('Jens', 'jens@grit.se'),
 ('Linda', 'linda@grit.se');
 
-1. Sätta in data i users tabellen workouttype
+2. Sätta in data i users tabellen workouttype
 INSERT INTO workouttypes (
     workouttype_name
 )
