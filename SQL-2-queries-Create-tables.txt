@@ -2,15 +2,13 @@ Version 1: Bara skapa 1 tabel utan möjlighet att registrera fler träningstyper
 på samma träningspass. Med foreign keys
 
 0. Skapa tabellen workouts
-CREATE TABLE workouts (
-    workout_id BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    workout_date DATE NOT NULL,
-    workout_name VARCHAR(200) NOT NULL,
-    workout_length INTEGER NOT NULL,
-    workout_comment TEXT 
+CREATE TABLE users (
+    id BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(200) NOT NULL, 
+    email VARCHAR(200) NULL
 );
 
-0.1 
+0.1 ??????
 CREATE TABLE workouts (
     workout_id BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     workout_name VARCHAR(200) NOT NULL,

@@ -1,4 +1,14 @@
-1. Skapa tabellen workouttype
+1. Sätta in data i users tabellen workouttype
+INSERT INTO users (
+    username,
+    e-mail
+)
+VALUES
+('Martin', 'martin@grit.se'),
+('Jens', 'jens@grit.se'),
+('Linda', 'linda@grit.se');
+
+1. Sätta in data i users tabellen workouttype
 INSERT INTO workouttypes (
     workouttype_name
 )
@@ -10,7 +20,7 @@ VALUES
 ('Friidrott'),
 ('Handboll');
 
-6. Skapa test workout i tabellen workouts
+6. Skapa test workouts i tabellen workouts
 INSERT INTO workouts (
   workout_name,
   workout_length,
