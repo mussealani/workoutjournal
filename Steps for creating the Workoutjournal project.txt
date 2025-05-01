@@ -1,21 +1,21 @@
-Steps for creating a project
+Steps for initial project setup
 0. Skapa GIT repo - Klart
 1. Skapa package.json med "npm init" - Klart
 2. Skapa mappar - src (backend), public (frontend) - Klart
 3. Skapa undermapper till public - css, js - Klart
 4. Skapa undermapper till src - helpers, routes - Klart
-5. Skapa databas - workoutjournal - Klart
-6. Installera Express - "npm install express" - 
-7. Installera Env - npm install dotenv - 
-8. Installera Databaskoppling - npm install mysql2 - 
-9. Installera CORS - npm install cors - 
-10. Under scripts i package.json - "dev": "nodemon src/index.js" 
-11. "type": "module", efter main.js (gamla sättet common.js) -
-
-12. Skapa index.js i rooten på src mappen - 
+5. Skapa databas - workoutdb - Klart
+6. Installera Express - "npm install express" - Klart 
+7. Installera Env - "npm install dotenv" - Klart 
+8. Installera Databaskoppling - "npm install mysql2" - Klart
+9. Installera CORS - "npm install cors" - Klart
+9.1 Installera nodemon - "npm install nodemon" - Klart
+10. Under scripts i package.json - "dev": "nodemon src/index.js" - Klart
+11. "type": "module", efter main.js (gamla sättet common.js) - Klart
+12. Skapa index.js i rooten på src mappen - Klart
 13. Läsa in miljövariabel filen med "import dotenv from 'dotenv'; dotenv.config(); från src/index.js - 
-14. I rooten skapas ".env"-fil - 
--- Var finns databasen - DB_HOST=localhost - 
--- Vilken användare skall vi använda för at ansluta till databasen: DB_USER=root - 
--- Lösenord - DB_PASSWORD=rootpassword - 
--- Databasnamn - DB_NAME=workoutjournal - 
+14. I rooten skapas ".env"-fil - Klart
+-- Var finns databasen - DB_HOST=localhost - Klart
+-- Vilken användare skall vi använda för at ansluta till databasen: DB_USER=root - Klart 
+-- Lösenord - DB_PASSWORD=rootpassword - Klart
+-- Databasnamn - DB_NAME=workoutjournal - Klart

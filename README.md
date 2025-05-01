@@ -1,2 +1,3 @@
 # workoutjournal
 
+Databasename: workoutdb
