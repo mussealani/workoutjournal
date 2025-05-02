@@ -95,25 +95,17 @@ function loadWorkouttypes() {
         .then(data => {
             const workoutTypesList = document.getElementById("workoutTypesList");
             workoutTypesList.innerHTML = "";   // Clear the list before adding new workout
-            data.forEach(workoutsession => {
+            data.forEach(workouttype => {
                 const tr = document.createElement("tr");
 
                 // Create first cell
                 td = document.createElement("td");
-                td.textContent = workoutsession.workoutsession_time;
+                td.textContent = workouttype.workouttype_id;
                 tr.appendChild(td);
 
                 // Create third cell
                 td = document.createElement("td");
-                td.textContent = workoutsession.workouttype_id; 
-                tr.appendChild(td);
-
-                td = document.createElement("td");
-                td.textContent = 'Edit';
-                tr.appendChild(td);
-
-                td = document.createElement("td");
-                td.textContent = 'X';
+                td.textContent = workouttype.workouttype_name; 
                 tr.appendChild(td);
 
                 // Add the tr to the tbody

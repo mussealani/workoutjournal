@@ -3,7 +3,7 @@ import { Router } from 'express';
 
 const router = Router();
 
-router.get('/workouttypes', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const sql = 'SELECT * FROM workouttypes';
         const [rows] = await pool.query(sql);
@@ -15,6 +15,7 @@ router.get('/workouttypes', async (req, res) => {
 });
 
 // Fungerar inte
+/*
 router.post('/workouttypes', async (req, res) => {
     const { workouttypes_name } = req.body;
 
@@ -41,5 +42,5 @@ router.post('/workouttypes', async (req, res) => {
     }
 
 });
-
+*/
 export default router;
