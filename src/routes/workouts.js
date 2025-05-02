@@ -3,7 +3,7 @@ import { Router } from 'express';
 
 const router = Router(); 
 
-router.get('/', async(req, res) => {
+router.get('/workouts', async(req, res) => {
     try {
         const sql = 'SELECT * FROM workouts';
         const [ rows ] = await pool.query(sql);

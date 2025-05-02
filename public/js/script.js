@@ -89,10 +89,34 @@ function loadWorkoutsessions() {
         });
 }
 
+function addWorkoutsessions() {
+    const workouttype_id = document.getElementById("workout-session-type").value;
+    const workoutsession_length = document.getElementById("workout_session_time").value;
+    const workout_id = document.getElementById("workoutId").value;
+    if(!workouttype_id || !workoutsession_length ){
+        alert("Workout Type and Length are required!");
+        return; 
+    }
+    console.log(workouttype_id, workoutsession_length, workout_id);
+    
+    fetch("http://localhost:3000/workoutsession", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ workouttype_id, workoutsession_length, workout_id })
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('No error');      // Reload workouts after adding a new one
+        });
+}
+
 function loadWorkouttypes() {
     fetch("http://localhost:3000/workouttypes/")
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             const workoutTypesList = document.getElementById("workoutTypesList");
             workoutTypesList.innerHTML = "";   // Clear the list before adding new workout
             data.forEach(workouttype => {
@@ -157,8 +181,12 @@ document.addEventListener("DOMContentLoaded", () => {
  
 
     // Add an event handler to the Add Workout button
-    const addWorkoutBtn = document.getElementById("addWorkout");
-    addWorkoutBtn.addEventListener("click", addWorkout);
+    // const addWorkoutBtn = document.getElementById("addWorkout");
+    // addWorkoutBtn.addEventListener("click", addWorkout);
+
+    // Add an event handler to the Add Workout Session button
+    const addWorkoutSessionBtn = document.getElementById("addWorkoutSession");
+    addWorkoutSessionBtn.addEventListener("click", addWorkoutsessions);
 
     // Add an event handler to the Add Workout Type button
     //const addWorkoutTypeBtn = document.getElementById("addWorkoutType");
