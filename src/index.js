@@ -5,7 +5,6 @@ import express from 'express';
 import workoutsRouter from './routes/workouts.js';
 import workouttypesRouter from './routes/workouttypes.js';
 import workoutsSessionsRouter from './routes/workoutsessions.js';
-import workoutsWorkouttypesRouter from './routes/workouts-workouttypes.js';
 
 const app = express(); 
 const PORT = process.env.PORT || 3000; 
@@ -26,15 +25,12 @@ app.use(express.static('public'));
 // Add the workouts routes
 app.use('/', workoutsRouter);
 
-
 // Add the workouts sessions routes
 app.use('/', workoutsSessionsRouter);
 
 // Add the workouttypes routes
 app.use('/workouttypes', workouttypesRouter);
 
-// Add the workouttypes routes
-app.use('/workouts-workouttypes', workoutsWorkouttypesRouter);
 
 app.listen(PORT, () => {
     console.log('Server is running on http://localhost:'+PORT);
