@@ -1,3 +1,13 @@
+NB! Tabellerna workouttypes och workouts skall skapas innan workoutsessions tabellen.
+Annars fungerar inte FOREIGN KEYS i workoutsessions tabellen.
+
+1. Skapa tabellen workouttypes - Klar
+CREATE TABLE workouttypes (
+    workouttype_id BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    workouttype_name VARCHAR(200) NOT NULL
+);
+
+2. Skapa tabellen workouts - Klar
 CREATE TABLE workouts (
     workout_id BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     workout_date DATE NOT NULL,
@@ -6,6 +16,7 @@ CREATE TABLE workouts (
     workout_comment VARCHAR(200)
 );
 
+3. Skapa tabellen workoutsessions - Klar
 CREATE TABLE workoutsessions (
     workoutsession_id BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     workoutsession_time INTEGER NOT NULL,
@@ -15,11 +26,7 @@ CREATE TABLE workoutsessions (
     FOREIGN KEY (workout_id) REFERENCES workouts(workout_id)
 );
 
-2. Skapa tabellen workouttypes - Klar
-CREATE TABLE workouttypes (
-    workouttype_id BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    workouttype_name VARCHAR(200) NOT NULL
-);
+
 
 
 
