@@ -4,7 +4,6 @@ INSERT INTO workouttypes (
 )
 VALUES
 ('Fotboll'),
-('Handboll'),
 ('Ishockey'),
 ('Löpträning'),
 ('Friidrott'),
@@ -16,16 +15,24 @@ INSERT INTO workouts (
   workout_name,
   workout_comment
 )
-VALUES 
-('2025-04-21', 'Torsdagspasset','Min första registrering av handbollträning');
+VALUES
+('2025-04-16', 'Onsdagspasset','Min första registrering av fotbollträning'),
+('2025-04-17', 'Torsdagspasset','Min första registrering av ishockeyträning'),
+('2025-04-18', 'Fredagspasset','Min första registrering av löpträning'),
+('2025-04-20', 'Lördagspasset','Min första registrering av friidrott'),
+('2025-04-21', 'Söndagspasset','Min första registrering av handbollträning');
 
-3. Skapa innehåll i tabellen workoutsessions
+3. Skapa innehåll i tabellen workoutsessions (intastas manuellt, en workoutsession pr träningspass?)
 INSERT INTO workoutsessions (
   workouttype_id,
   workoutsession_time
 )
 VALUES
-('1', '50');
+('1','110'),
+('2','60'),
+('3','30'),
+('4','45'),
+('5','75');
 
 
 

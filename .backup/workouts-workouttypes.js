@@ -1,4 +1,4 @@
-import pool from '../helpers/database.js';
+import pool from '../src/helpers/database.js';
 import { Router } from 'express';
 
 const router = Router(); 
