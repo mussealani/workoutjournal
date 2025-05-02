@@ -56,35 +56,6 @@ function loadWorkouts() {
         });
 }
 
-function addWorkout(event){
-    event.preventDefault();
-    const workout_date = document.getElementById("workout_date").value;
-    const workout_name = document.getElementById("workout_name").value;
-    const workout_comment = document.getElementById("workout_comment").value;
-
-    if(!workout_date || !workout_name ){
-        alert("Workout Date and Name are required!");
-        return; 
-    }
-
-
-    fetch("http://localhost:3000/workouts", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        // Should workout_total_length be added here?
-        body: JSON.stringify({ workout_date, workout_name, workout_comment })
-    })
-        .then(response => response.json())
-        .then(data => {
-            loadWorkouts();        // Reload workouts after adding a new one
-            document.getElementById("workout_date").value = "";
-            document.getElementById("workout_name").value = "";
-            document.getElementById("workout_comment").value = "";
-        })  
-}
-
 function loadWorkoutsessions() {
     fetch("http://localhost:3000/workoutsessions/")
         .then(response => response.json())
@@ -117,9 +88,42 @@ function loadWorkoutsessions() {
             });
         });
 }
-/*
 
-function addWourkoutsession(event){
+function loadWorkouttypes() {
+    fetch("http://localhost:3000/workouttypes/")
+        .then(response => response.json())
+        .then(data => {
+            const workoutTypesList = document.getElementById("workoutTypesList");
+            workoutTypesList.innerHTML = "";   // Clear the list before adding new workout
+            data.forEach(workoutsession => {
+                const tr = document.createElement("tr");
+
+                // Create first cell
+                td = document.createElement("td");
+                td.textContent = workoutsession.workoutsession_time;
+                tr.appendChild(td);
+
+                // Create third cell
+                td = document.createElement("td");
+                td.textContent = workoutsession.workouttype_id; 
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.textContent = 'Edit';
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.textContent = 'X';
+                tr.appendChild(td);
+
+                // Add the tr to the tbody
+                workoutTypesList.appendChild(tr);
+            });
+        });
+}
+
+
+function addWorkout(event){
     event.preventDefault();
     const workout_date = document.getElementById("workout_date").value;
     const workout_name = document.getElementById("workout_name").value;
@@ -147,15 +151,17 @@ function addWourkoutsession(event){
             document.getElementById("workout_comment").value = "";
         })  
 }
-        */
+
+
+
 
 
 // Replace eventlistener
 document.addEventListener("DOMContentLoaded", () => {
     // Load workouts when the page is loaded
     loadWorkouts();
-    // loadWorkoutTypes();
-    // loadWorkoutWorkoutTypes();
+    loadWorkouttypes();
+    loadWorkoutsessions();
  
 
     // Add an event handler to the Add Workout button
