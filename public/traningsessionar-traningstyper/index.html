@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tant Agda's träningsdagbok - Administrera Träningstyper</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <!-- Länka till custom css fil? -->
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+  <script src="../js/script.js"></script>
+</head>
+<body>
+  <header class="container pb-1 rounded-4">
+    <h1>Träningsdagbok för Tant Agda</h1>
+  </header>
+  <nav class="container pb-1 rounded-4">
+    <ul class="nav">
+      <li class="nav-item"><a class="nav-link" href="../" aria="selected">Hem</a></li>
+      <li class="nav-item"><a class="nav-link" href="../traningspass/">Träningspass</a></li>
+      <li class="nav-item"><a class="nav-link" href="../traningssessionar/">Träningssessionar</a></li>
+      <li class="nav-item"><a class="nav-link" href="../traningssessionar-traningstyper/">Träningssessionar och Träningstyper</a></li>
+      <li class="nav-item"><a class="nav-link" href="../traningstyper/">Träningstyper</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <section class="form-border">
+      <h2>Koppling Träningssessioner och Träniingstyper Workoutstypes</h2>
+      <form> 
+        <p>Skapa koppling mellan träningspass och träningstyp</p>
+        <label for="workout_id">Träningspass:</label>
+        <input type="number" id="workout_id" class="form-control mb-2" required>
+        <label for="workouttypes_id">Träningstyp namn:</label>
+        <input type="number" id="workouttypes_id" class="form-control mb-2" required>
+        <input type="button" id="addWorkoutWourkouttype" value="Lägg till träningstyp till träningspass" class="btn btn-primary">
+      </form>
+      </section>
+      <hr>
+  
+
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Träningssessioner och Träningstyper</th>
+      </tr>
+    </thead>
+    <tbody id="workoutTypesList">
+      <tr>
+
+      </tr>
+    </tbody>
+  </table>        
+  </main>
+
+  <footer class="container pt-3 pb-1 rounded-4">
+    <p>&copy; JensChrChristensen.com - Grit Academy - GitHub Repo</p>
+  </footer>
+</body>
+</html>

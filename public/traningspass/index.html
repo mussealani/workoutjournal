@@ -3,31 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tant Agda's träningsdagbok</title>
+  <title>Tant Agda's träningsdagbok - Koppling Workouts Workoutstypes</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
   <!-- Länka till custom css fil? -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
-  <script src="js/script.js"></script>
+  <script src="../js/script.js"></script>
 </head>
 <body>
   <header class="container pb-1 rounded-4">
     <h1>Träningsdagbok för Tant Agda</h1>
   </header>
-
   <nav class="container pb-1 rounded-4">
     <ul class="nav">
-      <li class="nav-item"><a class="nav-link" href="/" aria="selected">Hem</a></li>
-      <li class="nav-item"><a class="nav-link" href="traningspass">Träningspass</a></li>
-      <li class="nav-item"><a class="nav-link" href="traningssessionar">Träningssessionar</a></li>
-      <li class="nav-item"><a class="nav-link" href="traningssessionar-traningstyper">Träningssessionar och Träningstyper</a></li>
-      <li class="nav-item"><a class="nav-link" href="traningstyper">Träningstyper</a></li>
+      <li class="nav-item"><a class="nav-link"href="../" aria="selected">Hem</a></li>
+      <li class="nav-item"><a class="nav-link" href="../traningspass/">Träningspass</a></li>
+      <li class="nav-item"><a class="nav-link" href="../traningssessionar/">Träningssessionar</a></li>
+      <li class="nav-item"><a class="nav-link" href="../traningssessionar-traningstyper/">Träningssessionar och Träningstyper</a></li>
+      <li class="nav-item"><a class="nav-link" href="../traningstyper/">Träningstyper</a></li>
     </ul>
   </nav>
 
-  <main class="container">
-  
-  <hr>
+  <main class="container mb-3">
+    <hr>
   <h2>Mina träningspass</h2>
   <table class="table">
     <thead>
@@ -35,6 +33,7 @@
         <!-- Hidden
         <th scope="col">Träningspass id</th>
         -->
+        <th scope="col">Träningspass id</th>
         <th scope="col">Träningspass datumn</th>
         <th scope="col">Träningspass namn</th>
         <th scope="col">Total träningstid (min.)</th>
@@ -44,12 +43,25 @@
       </tr>
     </thead>
     <tbody id="workoutsList">
-      <tr>
 
-      </tr>
     </tbody>
   </table> 
-
+    
+  <section class="form-border">
+    <h2>Nytt träningspass (workouts)</h2>
+    <form>
+      <label for="workout_date">Träningsdatum:</label>
+      <input type="date" id="workout_date" class="form-control mb-2" required>
+      
+      <label for="workout_name">Träningspass namn:</label>
+      <input type="text" id="workout_name" class="form-control mb-2" required>
+  
+      <label for="workout_comment">Kommentar:</label>
+      <input type="text" id="workout_comment" class="form-control mb-2">
+  
+      <input type="button" id="addWorkout" value="Lägg till träningspass" class="btn btn-primary">
+    </form>
+    </section>     
   </main>
 
   <footer class="container pt-3 pb-1 rounded-4">

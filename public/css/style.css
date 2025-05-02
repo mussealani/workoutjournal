@@ -32,3 +32,6 @@ ul > li {
   border: 2px line;
 }
 
+.nav-link {
+  color: white;
+}

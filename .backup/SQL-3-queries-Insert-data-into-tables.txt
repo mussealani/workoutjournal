@@ -1,4 +1,14 @@
-1. Skapa innehåll i tabellen workouttype
+1. Sätta in data i users tabellen workouttype
+INSERT INTO users (
+    username,
+    e-mail
+)
+VALUES
+('Martin', 'martin@grit.se'),
+('Jens', 'jens@grit.se'),
+('Linda', 'linda@grit.se');
+
+2. Sätta in data i users tabellen workouttype
 INSERT INTO workouttypes (
     workouttype_name
 )
@@ -10,32 +20,15 @@ VALUES
 ('Friidrott'),
 ('Handboll');
 
-2. Skapa innehåll i tabellen workouts
+6. Skapa test workouts i tabellen workouts
 INSERT INTO workouts (
-  workout_date,
   workout_name,
+  workout_length,
+  workout_date,
   workout_comment
 )
 VALUES 
-('2025-04-21', 'Torsdagspasset','Min första registrering av handbollträning');
-
-3. Skapa innehåll i tabellen workoutsessions
-INSERT INTO workoutsessions (
-  workouttype_id,
-  workoutsession_time
-)
-VALUES
-('1', '50');
-
-
-
-
-
-
-
-
-
-
+('Handboll','1','2025-04-21','Min första registrering av handbollträning');
 
 7. Skapa test koppling mellan workouts och workouttype
 INSERT INTO workouts_workouttypes (

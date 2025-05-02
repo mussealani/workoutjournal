@@ -1,68 +1,171 @@
 
-function loadUsers() {
-    fetch("http://localhost:3000/users/")
+function loadWorkouts() {
+    fetch("http://localhost:3000/workouts/")
         .then(response => response.json())
         .then(data => {
-            const usersList = document.getElementById("usersList");
-            usersList.innerHTML = "";   // Clear the list before adding new users
-            data.forEach(user => {
+            const workoutsList = document.getElementById("workoutsList");
+            workoutsList.innerHTML = "";   // Clear the list before adding new workout
+            data.forEach(workout => {
                 const tr = document.createElement("tr");
 
                 // Create first cell
-                let td = document.createElement("td");
-                td.textContent = user.id;
+                td = document.createElement("td");
+                td.textContent = workout.workout_id;
                 tr.appendChild(td);
-                
+
                 // Create second cell
                 td = document.createElement("td");
-                td.textContent = user.username;
+                td.textContent = new Date(workout.workout_date).toLocaleDateString('sv-SE');
                 tr.appendChild(td);
-                
+
                 // Create third cell
                 td = document.createElement("td");
-                td.textContent = user.email;
+                td.textContent = workout.workout_name;
                 tr.appendChild(td);
-                
-                // Add the tr to the tbody
-                usersList.appendChild(tr);
 
+                // Create fourth cell
+                td = document.createElement("td");
+                td.textContent = workout.workout_length_total;
+                tr.appendChild(td);
+
+                // Create fifth cell
+                td = document.createElement("td");
+                td.textContent = workout.workout_comment;
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                a = document.createElement("a");
+                linkText = document.createTextNode("Lägg till tränningspass");
+                a.appendChild(linkText);
+
+                a.setAttribute("href", "/traningspass/" + workout.workout_id);
+                td.appendChild(a);
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.textContent = 'Edit';
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.textContent = 'X';
+                tr.appendChild(td);
+
+                // Add the tr to the tbody
+                workoutsList.appendChild(tr);
             });
         });
 }
 
-function addUser(event){
+function addWorkout(event){
     event.preventDefault();
+    const workout_date = document.getElementById("workout_date").value;
+    const workout_name = document.getElementById("workout_name").value;
+    const workout_comment = document.getElementById("workout_comment").value;
 
-    const username = document.getElementById("username").value;
-    const email = document.getElementById("email").value;
-
-    if(!username || !email){
-        alert("Username and email are required!");
+    if(!workout_date || !workout_name ){
+        alert("Workout Date and Name are required!");
         return; 
     }
 
-    fetch("http://localhost:3000/users", {
+
+    fetch("http://localhost:3000/workouts", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ username, email })
+        // Should workout_total_length be added here?
+        body: JSON.stringify({ workout_date, workout_name, workout_comment })
     })
         .then(response => response.json())
         .then(data => {
-            loadUsers();        // Reload users after adding a new one
-            document.getElementById("username").value = "";
-            document.getElementById("email").value = "";
+            loadWorkouts();        // Reload workouts after adding a new one
+            document.getElementById("workout_date").value = "";
+            document.getElementById("workout_name").value = "";
+            document.getElementById("workout_comment").value = "";
         })  
 }
 
+function loadWorkoutsessions() {
+    fetch("http://localhost:3000/workoutsessions/")
+        .then(response => response.json())
+        .then(data => {
+            const workoutSessionsTypesList = document.getElementById("workoutSessionsTypesList");
+            workoutSessionsTypesList.innerHTML = "";   // Clear the list before adding new workout
+            data.forEach(workoutsession => {
+                const tr = document.createElement("tr");
 
+                // Create first cell
+                td = document.createElement("td");
+                td.textContent = workoutsession.workoutsession_time;
+                tr.appendChild(td);
+
+                // Create third cell
+                td = document.createElement("td");
+                td.textContent = workoutsession.workouttype_id; 
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.textContent = 'Edit';
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.textContent = 'X';
+                tr.appendChild(td);
+
+                // Add the tr to the tbody
+                workoutSessionsTypesList.appendChild(tr);
+            });
+        });
+}
+/*
+
+function addWourkoutsession(event){
+    event.preventDefault();
+    const workout_date = document.getElementById("workout_date").value;
+    const workout_name = document.getElementById("workout_name").value;
+    const workout_comment = document.getElementById("workout_comment").value;
+
+    if(!workout_date || !workout_name ){
+        alert("Workout Date and Name are required!");
+        return; 
+    }
+
+
+    fetch("http://localhost:3000/workouts", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        // Should workout_total_length be added here?
+        body: JSON.stringify({ workout_date, workout_name, workout_comment })
+    })
+        .then(response => response.json())
+        .then(data => {
+            loadWorkouts();        // Reload workouts after adding a new one
+            document.getElementById("workout_date").value = "";
+            document.getElementById("workout_name").value = "";
+            document.getElementById("workout_comment").value = "";
+        })  
+}
+        */
+
+
+// Replace eventlistener
 document.addEventListener("DOMContentLoaded", () => {
-    // Load users when the page is loaded
-    loadUsers();
+    // Load workouts when the page is loaded
+    loadWorkouts();
+    // loadWorkoutTypes();
+    // loadWorkoutWorkoutTypes();
+ 
 
-    // Add an event handler to the Add User button
-    const addUserBtn = document.getElementById("addUser");
-    addUserBtn.addEventListener("click", addUser);
+    // Add an event handler to the Add Workout button
+    const addWorkoutBtn = document.getElementById("addWorkout");
+    addWorkoutBtn.addEventListener("click", addWorkout);
+
+    // Add an event handler to the Add Workout Type button
+    //const addWorkoutTypeBtn = document.getElementById("addWorkoutType");
+    //addWorkoutTypeBtn.addEventListener("click", addWorkoutType);
+
+    loadWorkoutsessions();
 
 });

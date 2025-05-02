@@ -1,7 +1,7 @@
 {
   "name": "workoutjournal",
   "version": "1.0.0",
-  "description": "Grit Academy - Backend-Databas-Uppgift - Testproject",
+  "description": "",
   "type": "module",
   "main": "index.js",
   "scripts": {
@@ -13,8 +13,9 @@
     "url": "git+https://github.com/jenschr69/workoutjournal.git"
   },
   "keywords": [],
-  "author": "Jens Christensen",
+  "author": "",
   "license": "ISC",
+  
   "bugs": {
     "url": "https://github.com/jenschr69/workoutjournal/issues"
   },
